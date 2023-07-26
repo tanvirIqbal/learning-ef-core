@@ -12,4 +12,6 @@
 2. Add migration - ``Add-Migration <Migration_Name>``
 3. Remove migration before updating the database - ``Remove-Migration``
 4. Apply Migration - ``Update-Database``
-5. Rollback to the specific migration ``Update-Database <Migration_Name>`` 
+5. Rollback to the specific migration - ``Update-Database <Migration_Name>`` 
+6. Show all migration name and status - ``Get-Migration``
+7. Delete database - ``Drop-Database``
