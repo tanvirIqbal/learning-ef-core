@@ -10,6 +10,6 @@ namespace CodingWiki_Models.Models
     {
         public int GenreId { get; set; }
         public string Name { get; set; }
-        public int Display { get; set; }
+        public int DisplayOrder { get; set; }
     }
 }

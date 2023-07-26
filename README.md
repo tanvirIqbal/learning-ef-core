@@ -9,5 +9,7 @@
 ## Migration steps in EF Core
 
 1. Create/Change Model
-2. Add migration
-3. Apply Migration
+2. Add migration - ``Add-Migration <Migration_Name>``
+3. Remove migration before updating the database - ``Remove-Migration``
+4. Apply Migration - ``Update-Database``
+5. Rollback to the specific migration ``Update-Database <Migration_Name>`` 
