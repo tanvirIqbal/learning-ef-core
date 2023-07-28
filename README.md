@@ -16,7 +16,7 @@
 6. Show all migration name and status - ``Get-Migration``
 7. Delete database - ``Drop-Database``
 
-## Data Annotation
+## Data Annotations
 
 - ``[Table("<changed_table_name>")]``
 - ``[Column("<changed_column_name>")]``
@@ -24,3 +24,13 @@
 - ``[Key]``
 - ``[MaxLength(<maximum_length_of_a_column>)]``
 - ``[NotMapped]``
+- ``[ForeignKey(<Foreign_table_property_name>)]``
+
+## Relationships
+
+### One to One
+
+Child Table  (BookDetail)  
+![BookDetail (Child to Book)](Screenshots/BookDetail%20(Child%20to%20Book).png)  
+Parent Table (Book)  
+![Book (Parent to BookDetail)](Screenshots/Book%20(Parent%20to%20BookDetail).png) 

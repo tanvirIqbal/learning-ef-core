@@ -9,12 +9,15 @@ namespace CodingWiki_Models.Models
 {
     public class Book
     {
+        #region Other Properties
         public int BookId { get; set; }
         [Required]
         public string Title { get; set; }
         [Required]
         public string ISBN { get; set; }
         [Required]
-        public decimal Price { get; set; }
+        public decimal Price { get; set; } 
+        #endregion
+        public BookDetail BookDetail { get; set; }
     }
 }
