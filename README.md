@@ -15,3 +15,12 @@
 5. Rollback to the specific migration - ``Update-Database <Migration_Name>`` 
 6. Show all migration name and status - ``Get-Migration``
 7. Delete database - ``Drop-Database``
+
+## Data Annotation
+
+- ``[Table("<changed_table_name>")]``
+- ``[Column("<changed_column_name>")]``
+- ``[Required]``
+- ``[Key]``
+- ``[MaxLength(<maximum_length_of_a_column>)]``
+- ``[NotMapped]``
