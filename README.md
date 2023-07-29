@@ -33,4 +33,29 @@
 Child Table  (BookDetail)  
 ![BookDetail (Child to Book)](Screenshots/BookDetail%20(Child%20to%20Book).png)  
 Parent Table (Book)  
-![Book (Parent to BookDetail)](Screenshots/Book%20(Parent%20to%20BookDetail).png) 
+![Book (Parent to BookDetail)](Screenshots/Book%20(Parent%20to%20BookDetail).png)   
+
+### One to Many  
+
+Child Table  (Book)  
+![Book (Child to Publisher)](Screenshots/Book%20(Child%20to%20Publisher).png)  
+Parent Table (Publisher)  
+![Publisher (Parent to Book)](Screenshots/Publisher%20(Parent%20to%20Book).png)   
+
+### Many to Many (Without mapping, .NET 5 to upper version)  
+
+Book (Many to Many with Author)  
+![Book (Many to Many with Author)](Screenshots/Book%20(Many%20to%20Many%20with%20Author)%201.PNG)  
+Author (Many to Many with Book)  
+![Author (Many to Many with Book)](Screenshots/Author%20(Many%20to%20Many%20with%20Book)%201.PNG)  
+
+### Many to Many (With mannual mapping)  
+
+AuthorBookMap class  
+![AuthorBookMap](Screenshots/AuthorBookMap.png)  
+AuthorBookMap Composit Key  
+![AuthorBookMapCompositKey](Screenshots/AuthorBookMapCompositKey.PNG)  
+Book (Many to Many with Author)  
+![Book (Many to Many with Author)](Screenshots/Book%20(Many%20to%20Many%20with%20Author)%202.PNG)  
+Author (Many to Many with Book)  
+![Author (Many to Many with Book)](Screenshots/Author%20(Many%20to%20Many%20with%20Book)%202.PNG)  

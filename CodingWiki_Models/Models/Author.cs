@@ -11,6 +11,7 @@ namespace CodingWiki_Models.Models
     [Table("Authors")]
     public class Author
     {
+        #region Other Properties
         [Key]
         public int Author_Id { get; set; }
         [Required]
@@ -25,6 +26,7 @@ namespace CodingWiki_Models.Models
         {
             get { return FirstName + " " + LastName; }
         }
-
+        #endregion
+        public List<AuthorBookMap> AuthorBookMap { get; set; }
     }
 }

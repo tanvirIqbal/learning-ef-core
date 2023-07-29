@@ -11,10 +11,13 @@ namespace CodingWiki_Models.Models
     [Table("Publishers")]
     public class Publisher
     {
+        #region Other Properties
         [Key]
         public int Publisher_Id { get; set; }
         [Required]
         public string Name { get; set; }
         public string Location { get; set; }
+        #endregion
+        public List<Book> Books { get; set; }
     }
 }
