@@ -20,6 +20,6 @@ namespace CodingWiki_Models.Models
         {
             get { return FirstName + " " + LastName; }
         }
-        //public List<AuthorBookMap> AuthorBookMap { get; set; }
+        public List<Fluent_AuthorBookMap> AuthorBookMap { get; set; }
     }
 }

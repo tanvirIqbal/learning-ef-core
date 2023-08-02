@@ -22,6 +22,7 @@ namespace CodingWiki_DataAccess.Data
         public DbSet<Fluent_Book> Fluent_Books { get; set; }
         public DbSet<Fluent_Author> Fluent_Athors { get; set; }
         public DbSet<Fluent_Publisher> Fluent_Publishers { get; set; }
+        public DbSet<Fluent_AuthorBookMap> Fluent_AuthorBookMaps { get; set; }
 
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
@@ -59,6 +60,9 @@ namespace CodingWiki_DataAccess.Data
 
 
             modelBuilder.Entity<AuthorBookMap>().HasKey(x => new { x.Author_Id, x.Book_Id });
+            modelBuilder.Entity<Fluent_AuthorBookMap>().HasKey(x => new { x.Author_Id, x.Book_Id });
+            modelBuilder.Entity<Fluent_AuthorBookMap>().HasOne(x => x.Book).WithMany(x => x.AuthorBookMap).HasForeignKey(x => x.Book_Id);
+            modelBuilder.Entity<Fluent_AuthorBookMap>().HasOne(x => x.Author).WithMany(x => x.AuthorBookMap).HasForeignKey(x => x.Author_Id);
             #region Other Code
             modelBuilder.Entity<Book>().Property(x => x.Price).HasPrecision(10, 5);
 

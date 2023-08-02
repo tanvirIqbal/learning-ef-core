@@ -71,3 +71,6 @@ Author (Many to Many with Book)
 - Not Mapped ``modelBuilder.Entity<Fluent_Book>().Ignore(x => x.PriceRange);``
 - One to One relationship ``modelBuilder.Entity<Fluent_BookDetail>().HasOne(x => x.Book).WithOne(x => x.BookDetail).HasForeignKey<Fluent_BookDetail>(x => x.Book_Id);``
 - One to Many relationship ``modelBuilder.Entity<Fluent_Book>().HasOne(x => x.Publisher).WithMany(x => x.Books).HasForeignKey(x => x.Publisher_Id);``
+- Many to many relationship  
+``modelBuilder.Entity<Fluent_AuthorBookMap>().HasOne(x => x.Book).WithMany(x => x.AuthorBookMap).HasForeignKey(x => x.Book_Id);``  
+``modelBuilder.Entity<Fluent_AuthorBookMap>().HasOne(x => x.Author).WithMany(x => x.AuthorBookMap).HasForeignKey(x => x.Author_Id);``  
