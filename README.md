@@ -58,4 +58,14 @@ AuthorBookMap Composit Key
 Book (Many to Many with Author)  
 ![Book (Many to Many with Author)](Screenshots/Book%20(Many%20to%20Many%20with%20Author)%202.PNG)  
 Author (Many to Many with Book)  
-![Author (Many to Many with Book)](Screenshots/Author%20(Many%20to%20Many%20with%20Book)%202.PNG)  
+![Author (Many to Many with Book)](Screenshots/Author%20(Many%20to%20Many%20with%20Book)%202.PNG)    
+
+### Fluent API  
+
+- Table Name ``modelBuilder.Entity<Fluent_BookDetail>().ToTable("Fluent_BookDetails");``
+- Primary Key ``modelBuilder.Entity<Fluent_Book>().HasKey(x => x.Book_Id);``
+- Composit Primary Key ``modelBuilder.Entity<AuthorBookMap>().HasKey(x => new { x.Author_Id, x.Book_Id });``
+- Required ``modelBuilder.Entity<Fluent_Book>().Property(x => x.ISBN).IsRequired();``
+- Property Name Change in DB ``modelBuilder.Entity<Fluent_BookDetail>().Property(x => x.NumberOfChapters).HasColumnName("NoOfChapter");``
+- Max Length ``modelBuilder.Entity<Fluent_Book>().Property(x => x.ISBN).HasMaxLength(50);``
+- Not Mapped ``modelBuilder.Entity<Fluent_Book>().Ignore(x => x.PriceRange);``

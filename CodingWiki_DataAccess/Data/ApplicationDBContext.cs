@@ -18,8 +18,42 @@ namespace CodingWiki_DataAccess.Data
         public DbSet<SubCategory> SubCategories { get; set; }
         public DbSet<AuthorBookMap> AuthorBookMaps { get; set; }
 
+        public DbSet<Fluent_BookDetail> BookDetails_Fluent { get; set; }
+        public DbSet<Fluent_Book> Fluent_Books { get; set; }
+        public DbSet<Fluent_Author> Fluent_Athors { get; set; }
+        public DbSet<Fluent_Publisher> Fluent_Publishers { get; set; }
+
         protected override void OnModelCreating(ModelBuilder modelBuilder)
         {
+            modelBuilder.Entity<Fluent_BookDetail>().ToTable("Fluent_BookDetails");
+            modelBuilder.Entity<Fluent_BookDetail>().Property(x => x.NumberOfChapters).HasColumnName("NoOfChapter");
+            modelBuilder.Entity<Fluent_BookDetail>().Property(x => x.NumberOfChapters).IsRequired();
+            modelBuilder.Entity<Fluent_BookDetail>().HasKey(x => x.BookDetail_Id);
+
+            modelBuilder.Entity<Fluent_Book>().HasKey(x => x.Book_Id);
+            modelBuilder.Entity<Fluent_Book>().Property(x => x.ISBN).HasMaxLength(50);
+            modelBuilder.Entity<Fluent_Book>().Property(x => x.ISBN).IsRequired();
+            modelBuilder.Entity<Fluent_Book>().Property(x => x.Title).IsRequired();
+            modelBuilder.Entity<Fluent_Book>().Property(x => x.Price).IsRequired();
+            modelBuilder.Entity<Fluent_Book>().Ignore(x => x.PriceRange);
+
+            modelBuilder.Entity<Fluent_Author>().HasKey(x => x.Author_Id);
+            modelBuilder.Entity<Fluent_Author>().Property(x => x.FirstName).HasMaxLength(50);
+            modelBuilder.Entity<Fluent_Author>().Property(x => x.FirstName).IsRequired();
+            modelBuilder.Entity<Fluent_Author>().Property(x => x.LastName).IsRequired();
+            modelBuilder.Entity<Fluent_Author>().Ignore(x => x.FullName);
+
+            modelBuilder.Entity<Fluent_Author>().HasKey(x => x.Author_Id);
+            modelBuilder.Entity<Fluent_Author>().Property(x => x.FirstName).HasMaxLength(50);
+            modelBuilder.Entity<Fluent_Author>().Property(x => x.FirstName).IsRequired();
+            modelBuilder.Entity<Fluent_Author>().Property(x => x.LastName).IsRequired();
+            modelBuilder.Entity<Fluent_Author>().Ignore(x => x.FullName);
+
+            modelBuilder.Entity<Fluent_Publisher>().HasKey(x => x.Publisher_Id);
+            modelBuilder.Entity<Fluent_Publisher>().Property(x => x.Name).IsRequired();
+
+
+
             modelBuilder.Entity<AuthorBookMap>().HasKey(x => new { x.Author_Id, x.Book_Id });
             #region Other Code
             modelBuilder.Entity<Book>().Property(x => x.Price).HasPrecision(10, 5);
