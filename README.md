@@ -70,3 +70,4 @@ Author (Many to Many with Book)
 - Max Length ``modelBuilder.Entity<Fluent_Book>().Property(x => x.ISBN).HasMaxLength(50);``
 - Not Mapped ``modelBuilder.Entity<Fluent_Book>().Ignore(x => x.PriceRange);``
 - One to One relationship ``modelBuilder.Entity<Fluent_BookDetail>().HasOne(x => x.Book).WithOne(x => x.BookDetail).HasForeignKey<Fluent_BookDetail>(x => x.Book_Id);``
+- One to Many relationship ``modelBuilder.Entity<Fluent_Book>().HasOne(x => x.Publisher).WithMany(x => x.Books).HasForeignKey(x => x.Publisher_Id);``

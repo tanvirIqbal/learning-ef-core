@@ -38,6 +38,8 @@ namespace CodingWiki_DataAccess.Data
             modelBuilder.Entity<Fluent_Book>().Property(x => x.Title).IsRequired();
             modelBuilder.Entity<Fluent_Book>().Property(x => x.Price).IsRequired();
             modelBuilder.Entity<Fluent_Book>().Ignore(x => x.PriceRange);
+            modelBuilder.Entity<Fluent_Book>().HasOne(x => x.Publisher).WithMany(x => x.Books)
+                .HasForeignKey(x => x.Publisher_Id);
 
             modelBuilder.Entity<Fluent_Author>().HasKey(x => x.Author_Id);
             modelBuilder.Entity<Fluent_Author>().Property(x => x.FirstName).HasMaxLength(50);
