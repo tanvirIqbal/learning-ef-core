@@ -29,6 +29,8 @@ namespace CodingWiki_DataAccess.Data
             modelBuilder.Entity<Fluent_BookDetail>().Property(x => x.NumberOfChapters).HasColumnName("NoOfChapter");
             modelBuilder.Entity<Fluent_BookDetail>().Property(x => x.NumberOfChapters).IsRequired();
             modelBuilder.Entity<Fluent_BookDetail>().HasKey(x => x.BookDetail_Id);
+            modelBuilder.Entity<Fluent_BookDetail>().HasOne(x => x.Book).WithOne(x => x.BookDetail)
+                .HasForeignKey<Fluent_BookDetail>(x => x.Book_Id);
 
             modelBuilder.Entity<Fluent_Book>().HasKey(x => x.Book_Id);
             modelBuilder.Entity<Fluent_Book>().Property(x => x.ISBN).HasMaxLength(50);
