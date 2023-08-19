@@ -74,3 +74,31 @@ Author (Many to Many with Book)
 - Many to many relationship  
 ``modelBuilder.Entity<Fluent_AuthorBookMap>().HasOne(x => x.Book).WithMany(x => x.AuthorBookMap).HasForeignKey(x => x.Book_Id);``  
 ``modelBuilder.Entity<Fluent_AuthorBookMap>().HasOne(x => x.Author).WithMany(x => x.AuthorBookMap).HasForeignKey(x => x.Author_Id);``  
+
+
+## Filtering Query
+
+### Some helper Methods
+
+- ``context.Database.EnsureCreated();`` create the db if not exists.  
+- ``context.Database.GenPendingMigrations()``
+- ``context.Database.Migrate()`` if ``GenPendingMigrations().Count() > 0`` run this to run the migration 1st.  
+
+### Some methods for query and add
+
+- ``context.Books.ToList();`` Get all books
+- ``context.Books.First();`` Get 1st book in the table. Throws exception if no data found
+- ``context.Books.FirstOrDefault();`` Get 1st book in the table. Returns null if no data found
+- ``context.Books.Where(x => x.Publisher_Id == 3 && x.Price > 30)`` Get book with some conditions.  
+- ``context.Books.Find(1);`` ``Find()`` only works on primary key  
+- ``context.Books.Single();`` Same as ``First()`` and throws exception when query returns more than 1 row
+- ``context.Books.SingleOrDefault();`` Same as ``FirstOrDefault()`` and throws exception when query returns more than 1 row  
+- ``context.Books.Where(x => x.ISBN.Contains("12"));`` 
+- ``context.Books.Where(x => EF.Functions.Like(x.ISBN,"12"));``  
+- ``decimal maxPrice = context.Books.Max(x => x.Price);``
+- ``int bookCount = context.Books.Count();``
+- ``context.Books.OrderBy(x => x.Title).ThenByDescending(x => x.Price);``
+- ``context.Books.Skip(0).Take(2);``
+- ``context.Books.Add(book);`` Add 1 book  
+- ``context.Books.Remove(book);`` 
+- ``context.SaveChanges();``  
