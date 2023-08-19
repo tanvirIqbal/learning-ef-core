@@ -15,6 +15,7 @@ namespace CodingWiki_DataAccess.Data
         public DbSet<Book> Books { get; set; }
         public DbSet<BookDetail> BookDetails { get; set; }
         public DbSet<Genre> Genres { get; set; }
+        public DbSet<Category> Categories { get; set; }
         public DbSet<Author> Authors { get; set; }
         public DbSet<Publisher> Publishers { get; set; }
         public DbSet<SubCategory> SubCategories { get; set; }
@@ -62,7 +63,16 @@ namespace CodingWiki_DataAccess.Data
                 new Publisher(){Publisher_Id=3, Name="Mark", Location="New York"}
             };
 
-            modelBuilder.Entity<Publisher>().HasData(publisherList); 
+            modelBuilder.Entity<Publisher>().HasData(publisherList);
+
+            var categoryList = new List<Category>()
+            {
+                new Category(){CategoryId=1, Name = "Cat 1"},
+                new Category(){CategoryId=2, Name = "Cat 2"},
+                new Category(){CategoryId=3, Name = "Cat 3"}
+            };
+
+            modelBuilder.Entity<Category>().HasData(categoryList);
         }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
